@@ -28,19 +28,19 @@ const EXAMPLES = [
   "여러 명이 PUCO 주변에 모여 있고 한 명이 손짓을 한다.",
 ];
 
-function OutputCard({ icon: Icon, title, color, children, defaultOpen = true }: {
-  icon: React.ElementType; title: string; color: string; children: React.ReactNode; defaultOpen?: boolean;
+function OutputCard({ icon: Icon, title, children, defaultOpen = true }: {
+  icon: React.ElementType; title: string; children: React.ReactNode; defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="glass rounded-xl overflow-hidden">
+    <div className="glass rounded-xl overflow-hidden border border-white/5">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-4 hover:bg-white/3 transition-colors"
+        className="w-full flex items-center justify-between p-4 hover:bg-white/3 transition-colors text-left"
       >
         <div className="flex items-center gap-3">
-          <div className={`w-8 h-8 rounded-lg ${color} flex items-center justify-center flex-shrink-0`}>
-            <Icon className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-lg bg-white/3 border border-white/5 flex items-center justify-center flex-shrink-0">
+            <Icon className="w-4 h-4 text-brand-500" />
           </div>
           <span className="font-semibold text-white text-sm">{title}</span>
         </div>
@@ -54,7 +54,7 @@ function OutputCard({ icon: Icon, title, color, children, defaultOpen = true }: 
 function ListItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-sm text-slate-300">
-      <span className="w-1 h-1 rounded-full bg-brand-400 flex-shrink-0 mt-2" />
+      <span className="w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0 mt-2" />
       <span>{text}</span>
     </div>
   );
@@ -145,7 +145,7 @@ export default function GeneratePage() {
             )}
 
             {/* Situation Analysis */}
-            <OutputCard icon={Lightbulb} title="상황 분석" color="bg-gradient-to-br from-yellow-500 to-orange-500">
+            <OutputCard icon={Lightbulb} title="상황 분석">
               <div className="space-y-2">
                 <p className="text-sm text-slate-300"><span className="text-slate-500">Intent: </span><span className="text-brand-300 font-medium">{result.situationAnalysis.intent}</span></p>
                 {result.situationAnalysis.userState.length > 0 && (
@@ -161,28 +161,28 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Camera */}
-            <OutputCard icon={Camera} title="RGB 카메라" color="bg-gradient-to-br from-blue-500 to-cyan-500">
+            <OutputCard icon={Camera} title="RGB 카메라">
               <SectionLabel label="인식 대상" />{result.camera.targets.map((t,i) => <ListItem key={i} text={t} />)}
               <SectionLabel label="인식 조건" />{result.camera.conditions.map((c,i) => <ListItem key={i} text={c} />)}
               <SectionLabel label="낮은 신뢰도 대응" />{result.camera.lowConfidenceResponse.map((r,i) => <ListItem key={i} text={r} />)}
             </OutputCard>
 
             {/* ToF */}
-            <OutputCard icon={Radio} title="Laser ToF 센서" color="bg-gradient-to-br from-emerald-500 to-teal-500">
+            <OutputCard icon={Radio} title="Laser ToF 센서">
               <SectionLabel label="거리 상태" />{result.tof.states.map((s,i) => <ListItem key={i} text={s} />)}
               <SectionLabel label="거리 변화 조건" />{result.tof.changeConditions.map((c,i) => <ListItem key={i} text={c} />)}
               <SectionLabel label="안전 조건" />{result.tof.safetyConditions.map((s,i) => <ListItem key={i} text={s} />)}
             </OutputCard>
 
             {/* Microphone */}
-            <OutputCard icon={Mic} title="마이크 어레이" color="bg-gradient-to-br from-violet-500 to-purple-500">
+            <OutputCard icon={Mic} title="마이크 어레이">
               {result.microphone.outputs.map((o,i) => <ListItem key={i} text={o} />)}
               <SectionLabel label="소리 방향" /><ListItem text={result.microphone.direction} />
               <SectionLabel label="상태" /><ListItem text={result.microphone.status} />
             </OutputCard>
 
             {/* Interpretation */}
-            <OutputCard icon={Lightbulb} title="해석 (Interpretation)" color="bg-gradient-to-br from-amber-500 to-yellow-500">
+            <OutputCard icon={Lightbulb} title="해석 (Interpretation)">
               <p className="text-sm text-slate-300">{result.interpretation.meaning}</p>
               <div className="flex gap-4 mt-2">
                 <span className="text-xs text-slate-500">신뢰도: <span className="text-slate-300">{result.interpretation.confidence}</span></span>
@@ -191,7 +191,7 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Motion */}
-            <OutputCard icon={Move3d} title="관절 모션 (Head · Body · Leg)" color="bg-gradient-to-br from-indigo-500 to-blue-500">
+            <OutputCard icon={Move3d} title="관절 모션 (Head · Body · Leg)">
               <SectionLabel label="동작 시퀀스" />
               {result.motion.sequence.map((s,i) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-slate-300">
@@ -214,7 +214,7 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Projection */}
-            <OutputCard icon={Projector} title="Pico 빔 프로젝터" color="bg-gradient-to-br from-orange-500 to-amber-500">
+            <OutputCard icon={Projector} title="Pico 빔 프로젝터">
               <SectionLabel label="콘텐츠" />{result.projection.content.map((c,i) => <ListItem key={i} text={c} />)}
               <SectionLabel label="투사면" />{result.projection.targetSurface.map((s,i) => <ListItem key={i} text={s} />)}
               <SectionLabel label="밝기 · 크기 · 전환" />
@@ -223,7 +223,7 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Sound */}
-            <OutputCard icon={Volume2} title="스피커" color="bg-gradient-to-br from-pink-500 to-rose-500">
+            <OutputCard icon={Volume2} title="스피커">
               {result.sound.outputs.map((o,i) => <ListItem key={i} text={o} />)}
               <div className="grid grid-cols-2 gap-2 mt-2">
                 <div className="text-xs text-slate-500">볼륨: <span className="text-slate-300">{result.sound.volume}</span></div>
@@ -232,7 +232,7 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Timing */}
-            <OutputCard icon={Clock} title="멀티모달 타이밍" color="bg-gradient-to-br from-slate-500 to-slate-600" defaultOpen={false}>
+            <OutputCard icon={Clock} title="멀티모달 타이밍" defaultOpen={false}>
               {result.timing.sequence.map((s,i) => (
                 <div key={i} className="flex items-start gap-2 text-xs text-slate-400">
                   <span className="text-slate-600 font-mono">{String(i+1).padStart(2,"0")}</span>
@@ -242,14 +242,14 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Monitoring */}
-            <OutputCard icon={Radio} title="모니터링" color="bg-gradient-to-br from-teal-500 to-emerald-500">
+            <OutputCard icon={Radio} title="모니터링">
               <SectionLabel label="기대 반응" />{result.monitoring.expectedResponse.map((r,i) => <ListItem key={i} text={r} />)}
               <SectionLabel label="성공 조건" />{result.monitoring.successCondition.map((c,i) => <ListItem key={i} text={c} />)}
               <SectionLabel label="타임아웃" /><ListItem text={result.monitoring.timeout} />
             </OutputCard>
 
             {/* Recovery */}
-            <OutputCard icon={RefreshCcw} title="예외 대응 및 복구" color="bg-gradient-to-br from-red-500 to-rose-600" defaultOpen={false}>
+            <OutputCard icon={RefreshCcw} title="예외 대응 및 복구" defaultOpen={false}>
               <SectionLabel label="인식 불확실" />{result.recovery.uncertain.map((r,i) => <ListItem key={i} text={r} />)}
               <SectionLabel label="무반응" />{result.recovery.noResponse.map((r,i) => <ListItem key={i} text={r} />)}
               <SectionLabel label="사용자 이탈" />{result.recovery.userLeft.map((r,i) => <ListItem key={i} text={r} />)}
@@ -258,7 +258,7 @@ export default function GeneratePage() {
             </OutputCard>
 
             {/* Usage Example */}
-            <div className="glass rounded-xl p-5 border border-brand-500/20">
+            <div className="glass rounded-xl p-5 border border-white/5">
               <div className="flex items-center gap-2 mb-3">
                 <ShieldAlert className="w-4 h-4 text-brand-400" />
                 <span className="text-sm font-semibold text-white">활용 예시</span>

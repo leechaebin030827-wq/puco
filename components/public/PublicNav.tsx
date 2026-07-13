@@ -17,15 +17,15 @@ export default function PublicNav() {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-white/5"
-      style={{ background: "rgba(8, 11, 18, 0.85)", backdropFilter: "blur(16px)" }}>
+      style={{ background: "rgba(9, 9, 11, 0.85)", backdropFilter: "blur(16px)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center shadow-lg">
+          <div className="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center shadow-lg">
             <Zap className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-white tracking-tight">
-            PUCO <span className="text-brand-400 font-normal">Behavior</span>
+            PUCO <span className="text-brand-500 font-normal">Behavior</span>
           </span>
         </Link>
 
@@ -37,8 +37,8 @@ export default function PublicNav() {
               href={link.href}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 pathname === link.href
-                  ? "bg-white/8 text-white"
-                  : "text-slate-400 hover:text-white hover:bg-white/5"
+                  ? "bg-white/5 text-white"
+                  : "text-slate-400 hover:text-white hover:bg-white/3"
               }`}
             >
               {link.label}
@@ -60,13 +60,13 @@ export default function PublicNav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-white/5 bg-gray-950/95 px-4 pb-4 pt-2 space-y-1">
+        <div className="md:hidden border-t border-white/5 bg-surface-900/95 px-4 pb-4 pt-2 space-y-1">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block px-4 py-2.5 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5"
+              className="block px-4 py-2.5 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/3"
             >
               {link.label}
             </Link>

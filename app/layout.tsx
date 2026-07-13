@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "PUCO Behavior Grammar",
@@ -20,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={inter.variable}>
-      <body className="bg-gray-950 text-white antialiased">
+    <html lang="ko">
+      <body className="bg-surface-900 font-sans text-slate-200 antialiased">
         {children}
       </body>
     </html>

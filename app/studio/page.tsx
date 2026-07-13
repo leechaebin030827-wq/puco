@@ -84,10 +84,10 @@ export default async function StudioPage() {
   const { stats, totals } = await getStats();
 
   const STAT_CARDS = [
-    { label: "전체 항목", value: totals.total, icon: Database, color: "from-brand-600/30 to-brand-800/30", border: "border-brand-500/20" },
-    { label: "초안 (Draft)", value: totals.draft, icon: FileText, color: "from-indigo-600/30 to-indigo-800/30", border: "border-indigo-500/20" },
-    { label: "발행됨 (Published)", value: totals.published, icon: Globe, color: "from-emerald-600/30 to-emerald-800/30", border: "border-emerald-500/20" },
-    { label: "지원 종료 (Deprecated)", value: totals.deprecated, icon: AlertTriangle, color: "from-slate-600/30 to-slate-800/30", border: "border-slate-500/20" },
+    { label: "전체 항목", value: totals.total, icon: Database, color: "bg-white/3 text-slate-400", border: "border-white/5" },
+    { label: "초안 (Draft)", value: totals.draft, icon: FileText, color: "bg-white/3 text-slate-400", border: "border-white/5" },
+    { label: "발행됨 (Published)", value: totals.published, icon: Globe, color: "bg-brand-500/5 text-brand-500", border: "border-brand-500/20" },
+    { label: "지원 종료 (Deprecated)", value: totals.deprecated, icon: AlertTriangle, color: "bg-white/3 text-slate-500", border: "border-white/5" },
   ];
 
   return (
@@ -102,8 +102,8 @@ export default async function StudioPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         {STAT_CARDS.map((card) => (
           <div key={card.label} className={`glass rounded-xl p-5 border ${card.border}`}>
-            <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${card.color} border ${card.border} flex items-center justify-center mb-3`}>
-              <card.icon className="w-4 h-4 text-white" />
+            <div className={`w-9 h-9 rounded-lg ${card.color} border ${card.border} flex items-center justify-center mb-3`}>
+              <card.icon className="w-4 h-4" />
             </div>
             <p className="text-3xl font-bold text-white">{card.value}</p>
             <p className="text-xs text-slate-500 mt-1">{card.label}</p>
