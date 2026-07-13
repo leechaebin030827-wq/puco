@@ -1,0 +1,17 @@
+[
+  { "id": "GOAL-01", "name": "Acknowledge", "purpose": "사용자의 행동을 인식했음을 알린다", "defaultPriority": "medium", "useWhen": "사용자가 제스처, 접근, 호출을 통해 상호작용을 시작했을 때", "avoidWhen": "사용자가 보고 있지 않거나 상호작용을 거부할 때", "tags": ["acknowledge", "feedback", "basic"] },
+  { "id": "GOAL-02", "name": "Attract", "purpose": "사용자의 주의를 끈다", "defaultPriority": "medium", "useWhen": "사용자가 PUCO를 보고 있지 않거나 상호작용이 필요할 때", "avoidWhen": "사용자가 집중하고 있는 다른 작업이 있을 때", "tags": ["attract", "attention", "proactive"] },
+  { "id": "GOAL-03", "name": "Invite", "purpose": "상호작용을 제안한다", "defaultPriority": "low", "useWhen": "사용자가 PUCO 근처에 있지만 상호작용을 시작하지 않았을 때", "avoidWhen": "사용자가 바쁘거나 거부 의사를 보일 때", "tags": ["invite", "proactive", "social"] },
+  { "id": "GOAL-04", "name": "Guide", "purpose": "사용자 행동이나 위치를 안내한다", "defaultPriority": "high", "useWhen": "사용자가 다음 행동을 모르거나 안내가 필요할 때", "avoidWhen": "사용자가 이미 진행 중일 때", "tags": ["guide", "instruction", "task"] },
+  { "id": "GOAL-05", "name": "Confirm", "purpose": "입력, 선택, 완료를 확인한다", "defaultPriority": "high", "useWhen": "사용자의 행동이 성공적으로 인식되었을 때", "avoidWhen": "인식 신뢰도가 낮을 때", "tags": ["confirm", "success", "feedback"] },
+  { "id": "GOAL-06", "name": "Clarify", "purpose": "불확실한 입력을 다시 요청한다", "defaultPriority": "medium", "useWhen": "사용자의 의도가 불명확하거나 신뢰도가 낮을 때", "avoidWhen": "상황이 이미 명확할 때", "tags": ["clarify", "uncertainty", "retry"] },
+  { "id": "GOAL-07", "name": "Encourage", "purpose": "사용자의 행동 지속을 격려한다", "defaultPriority": "low", "useWhen": "사용자가 작업을 진행하고 있을 때", "avoidWhen": "사용자가 중단하려 할 때", "tags": ["encourage", "support", "task"] },
+  { "id": "GOAL-08", "name": "Warn", "purpose": "위험이나 오류를 알린다", "defaultPriority": "critical", "useWhen": "안전 위험이나 심각한 오류가 감지될 때", "avoidWhen": "없음 — 항상 최우선", "tags": ["warn", "safety", "error"] },
+  { "id": "GOAL-09", "name": "Wait", "purpose": "사용자의 다음 행동을 기다린다", "defaultPriority": "low", "useWhen": "사용자가 생각하거나 준비 중일 때", "avoidWhen": "무기한 대기가 필요할 때", "tags": ["wait", "passive", "standby"] },
+  { "id": "GOAL-10", "name": "Complete", "purpose": "작업 완료를 표현한다", "defaultPriority": "medium", "useWhen": "작업이 성공적으로 완료되었을 때", "avoidWhen": "작업이 아직 진행 중일 때", "tags": ["complete", "done", "success"] },
+  { "id": "GOAL-11", "name": "Reject", "purpose": "수행할 수 없는 요청을 알린다", "defaultPriority": "medium", "useWhen": "요청이 capability 범위를 벗어날 때", "avoidWhen": "가능한 대안이 있을 때", "tags": ["reject", "limitation", "impossible"] },
+  { "id": "GOAL-12", "name": "Recover", "purpose": "실패 또는 중단 상태에서 복구한다", "defaultPriority": "high", "useWhen": "오류, 중단, 인식 실패 후", "avoidWhen": "없음 — 복구는 항상 필요", "tags": ["recover", "error", "retry"] },
+  { "id": "GOAL-13", "name": "Withdraw", "purpose": "상호작용을 종료하고 물러난다", "defaultPriority": "medium", "useWhen": "사용자가 상호작용 종료를 원할 때", "avoidWhen": "긴급 상황", "tags": ["withdraw", "end", "goodbye"] },
+  { "id": "GOAL-14", "name": "Observe", "purpose": "개입하지 않고 상황을 관찰한다", "defaultPriority": "low", "useWhen": "상황이 불명확하거나 개입이 불필요할 때", "avoidWhen": "즉각적인 반응이 필요할 때", "tags": ["observe", "passive", "monitoring"] },
+  { "id": "GOAL-15", "name": "Prioritize Safety", "purpose": "모든 표현보다 안전을 우선한다", "defaultPriority": "critical", "useWhen": "충돌 위험 또는 사용자 안전 위협이 감지될 때", "avoidWhen": "없음 — 항상 최우선", "tags": ["safety", "stop", "critical"] }
+]

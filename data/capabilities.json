@@ -1,0 +1,38 @@
+[
+  {
+    "id": "CAP-CAM",
+    "name": "Camera",
+    "inputOutput": "Input",
+    "function": "사람, 제스처, 물체, 표면, 밝기, 움직임을 시각적으로 감지한다",
+    "availableData": ["user_presence", "face_direction", "gaze_direction", "gesture", "object", "surface", "brightness", "movement"],
+    "limitations": "어두운 환경에서 정확도가 낮아진다. 빠른 움직임에서 인식이 불안정할 수 있다.",
+    "status": "Available"
+  },
+  {
+    "id": "CAP-DIS",
+    "name": "Distance Sensor",
+    "inputOutput": "Input",
+    "function": "대상과의 거리 및 거리 변화를 감지한다",
+    "availableData": ["distance_value", "distance_change", "approach_speed", "presence"],
+    "limitations": "반사율이 낮은 표면에서 오류가 발생할 수 있다. 다중 대상 구분이 어렵다.",
+    "status": "Available"
+  },
+  {
+    "id": "CAP-MOT",
+    "name": "Joint Motion",
+    "inputOutput": "Output",
+    "function": "PUCO의 방향, 자세, 시선, 리듬을 물리적으로 표현한다",
+    "availableData": ["orientation", "posture", "gesture", "tracking", "transition"],
+    "limitations": "사용자가 지나치게 가까울 때 큰 움직임을 제한한다. 빠른 속도의 연속 모션은 하드웨어에 부담을 줄 수 있다.",
+    "status": "Available"
+  },
+  {
+    "id": "CAP-PRO",
+    "name": "Beam Projector",
+    "inputOutput": "Output",
+    "function": "정보, 상태, 가이드, 감정적 그래픽을 표면에 투사한다",
+    "availableData": ["icon", "line", "shape", "text", "animation", "image"],
+    "limitations": "투사 가능한 평면이 필요하다. 밝은 환경에서 가시성이 낮아진다. 사용자 얼굴이나 눈에 직접 투사하지 않는다.",
+    "status": "Available"
+  }
+]
