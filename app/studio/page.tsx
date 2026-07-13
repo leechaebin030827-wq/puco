@@ -84,18 +84,18 @@ export default async function StudioPage() {
   const { stats, totals } = await getStats();
 
   const STAT_CARDS = [
-    { label: "전체 항목", value: totals.total, icon: Database, color: "bg-white/3 text-slate-400", border: "border-white/5" },
-    { label: "초안 (Draft)", value: totals.draft, icon: FileText, color: "bg-white/3 text-slate-400", border: "border-white/5" },
-    { label: "발행됨 (Published)", value: totals.published, icon: Globe, color: "bg-brand-500/5 text-brand-500", border: "border-brand-500/20" },
-    { label: "지원 종료 (Deprecated)", value: totals.deprecated, icon: AlertTriangle, color: "bg-white/3 text-slate-500", border: "border-white/5" },
+    { label: "전체 항목", value: totals.total, icon: Database, color: "bg-zinc-100 text-zinc-500", border: "border-zinc-200" },
+    { label: "초안 (Draft)", value: totals.draft, icon: FileText, color: "bg-zinc-100 text-zinc-500", border: "border-zinc-200" },
+    { label: "발행됨 (Published)", value: totals.published, icon: Globe, color: "bg-brand-50 text-brand-600", border: "border-brand-200" },
+    { label: "지원 종료 (Deprecated)", value: totals.deprecated, icon: AlertTriangle, color: "bg-zinc-100 text-zinc-400", border: "border-zinc-200" },
   ];
 
   return (
     <div className="p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">대시보드</h1>
-        <p className="text-slate-500 text-sm mt-1">PUCO Behavior Grammar 데이터베이스 현황</p>
+        <h1 className="text-2xl font-bold text-zinc-900">대시보드</h1>
+        <p className="text-zinc-500 text-sm mt-1">PUCO Behavior Grammar 데이터베이스 현황</p>
       </div>
 
       {/* Stat Cards */}
@@ -105,16 +105,16 @@ export default async function StudioPage() {
             <div className={`w-9 h-9 rounded-lg ${card.color} border ${card.border} flex items-center justify-center mb-3`}>
               <card.icon className="w-4 h-4" />
             </div>
-            <p className="text-3xl font-bold text-white">{card.value}</p>
-            <p className="text-xs text-slate-500 mt-1">{card.label}</p>
+            <p className="text-3xl font-bold text-zinc-900">{card.value}</p>
+            <p className="text-xs text-zinc-500 mt-1">{card.label}</p>
           </div>
         ))}
       </div>
 
       {/* DB Overview */}
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-white">데이터베이스 현황</h2>
-        <span className="text-xs text-slate-600">{TABLES.length}개 테이블</span>
+        <h2 className="text-lg font-semibold text-zinc-900">데이터베이스 현황</h2>
+        <span className="text-xs text-zinc-500">{TABLES.length}개 테이블</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
@@ -125,25 +125,25 @@ export default async function StudioPage() {
             <Link key={table} href={route}
               className="glass glass-hover rounded-xl p-4 flex items-center justify-between group">
               <div>
-                <p className="font-medium text-white text-sm group-hover:text-brand-300 transition-colors">
+                <p className="font-medium text-zinc-900 text-sm group-hover:text-brand-600 transition-colors">
                   {TABLE_LABELS[table]}
                 </p>
                 <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-xs text-slate-500">전체 {s.total}</span>
+                  <span className="text-xs text-zinc-500">전체 {s.total}</span>
                   {s.draft > 0 && <span className="badge-draft text-xs px-2 py-0.5 rounded-full">초안 {s.draft}</span>}
                   {s.published > 0 && <span className="badge-published text-xs px-2 py-0.5 rounded-full">발행 {s.published}</span>}
                 </div>
               </div>
-              <Plus className="w-4 h-4 text-slate-600 group-hover:text-brand-400 transition-colors" />
+              <Plus className="w-4 h-4 text-zinc-400 group-hover:text-brand-500 transition-colors" />
             </Link>
           );
         })}
       </div>
 
       {/* Quick links */}
-      <div className="mt-10 glass rounded-xl p-5 border border-white/5">
-        <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-          <Clock className="w-4 h-4 text-slate-500" /> 빠른 작업
+      <div className="mt-10 glass rounded-xl p-5 border border-zinc-200/60">
+        <h3 className="text-sm font-semibold text-zinc-900 mb-4 flex items-center gap-2">
+          <Clock className="w-4 h-4 text-zinc-400" /> 빠른 작업
         </h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/studio/rules/new" className="btn-secondary text-sm py-2">새 Rule 만들기</Link>

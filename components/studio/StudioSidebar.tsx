@@ -78,7 +78,7 @@ function NavGroup({ group, pathname }: { group: NavGroup; pathname: string }) {
     <div className="mb-1">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hover:text-slate-400 transition-colors"
+        className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-semibold text-zinc-400 uppercase tracking-wider hover:text-zinc-600 transition-colors"
       >
         {group.label}
         {open ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
@@ -93,8 +93,8 @@ function NavGroup({ group, pathname }: { group: NavGroup; pathname: string }) {
                 href={item.href}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all ${
                   active
-                    ? "bg-brand-600/20 text-brand-300 border border-brand-500/20"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                    ? "bg-brand-50 text-brand-600 border border-brand-100 font-medium"
+                    : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50"
                 }`}
               >
                 <item.icon className="w-4 h-4 flex-shrink-0" />
@@ -122,14 +122,14 @@ export default function StudioSidebar() {
   return (
     <aside className="studio-sidebar w-60 flex flex-col flex-shrink-0 overflow-hidden">
       {/* Logo */}
-      <div className="p-4 border-b border-white/5">
+      <div className="p-4 border-b border-zinc-200/60">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
             <Zap className="w-3.5 h-3.5 text-white" />
           </div>
           <div>
-            <p className="text-sm font-bold text-white leading-none">PUCO</p>
-            <p className="text-xs text-slate-500 leading-none mt-0.5">Studio</p>
+            <p className="text-sm font-bold text-zinc-900 leading-none">PUCO</p>
+            <p className="text-xs text-zinc-400 leading-none mt-0.5">Studio</p>
           </div>
         </Link>
       </div>
@@ -142,10 +142,10 @@ export default function StudioSidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="p-3 border-t border-white/5">
+      <div className="p-3 border-t border-zinc-200/60">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-500 hover:text-white hover:bg-white/5 transition-all"
+          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-all"
         >
           <LogOut className="w-4 h-4" />
           로그아웃

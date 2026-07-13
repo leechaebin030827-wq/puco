@@ -5,7 +5,7 @@ export default async function StudioLayout({ children }: { children: React.React
   await requireAdmin();
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-950">
+    <div className="flex h-screen overflow-hidden bg-zinc-50 text-zinc-900">
       <StudioSidebar />
       <main className="flex-1 overflow-y-auto">
         {children}

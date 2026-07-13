@@ -50,21 +50,21 @@ export default function SettingsPage() {
   return (
     <div className="p-8 max-w-3xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">설정</h1>
-        <p className="text-slate-500 text-sm mt-1">데이터 Import, Export 및 시스템 설정</p>
+        <h1 className="text-2xl font-bold text-zinc-900">설정</h1>
+        <p className="text-zinc-500 text-sm mt-1">데이터 Import, Export 및 시스템 설정</p>
       </div>
 
       {/* Export Section */}
       <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-          <Download className="w-5 h-5 text-slate-400" /> 데이터 Export
+        <h2 className="text-lg font-semibold text-zinc-900 mb-4 flex items-center gap-2">
+          <Download className="w-5 h-5 text-zinc-400" /> 데이터 Export
         </h2>
 
         {/* Export All */}
-        <div className="glass rounded-xl p-5 mb-4 flex items-center justify-between">
+        <div className="glass rounded-xl p-5 mb-4 flex items-center justify-between bg-white/80">
           <div>
-            <p className="font-medium text-white">전체 데이터 JSON Export</p>
-            <p className="text-sm text-slate-500 mt-0.5">모든 테이블을 하나의 JSON 파일로 내보냅니다.</p>
+            <p className="font-medium text-zinc-900">전체 데이터 JSON Export</p>
+            <p className="text-sm text-zinc-500 mt-0.5">모든 테이블을 하나의 JSON 파일로 내보냅니다.</p>
           </div>
           <button onClick={handleExportAll} className="btn-primary text-sm">
             <Download className="w-4 h-4" /> 전체 내보내기
@@ -72,13 +72,13 @@ export default function SettingsPage() {
         </div>
 
         {/* Per-table export */}
-        <div className="glass rounded-xl overflow-hidden">
-          <div className="px-4 py-3 border-b border-white/5">
-            <p className="text-sm font-medium text-slate-400">테이블별 Export</p>
+        <div className="glass rounded-xl overflow-hidden bg-white/80">
+          <div className="px-4 py-3 border-b border-zinc-200/60 bg-zinc-50/50">
+            <p className="text-sm font-medium text-zinc-500">테이블별 Export</p>
           </div>
           {TABLES.map((t) => (
-            <div key={t.key} className="flex items-center justify-between px-4 py-3 border-b border-white/3 data-row">
-              <span className="text-sm text-slate-300">{t.label}</span>
+            <div key={t.key} className="flex items-center justify-between px-4 py-3 border-b border-zinc-100 data-row">
+              <span className="text-sm text-zinc-700 font-medium">{t.label}</span>
               <div className="flex gap-2">
                 <button onClick={() => handleExport(t.key)} className="btn-ghost text-xs py-1.5 px-3">
                   JSON
@@ -91,18 +91,18 @@ export default function SettingsPage() {
 
       {/* Import Section */}
       <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-          <Upload className="w-5 h-5 text-slate-400" /> 데이터 Import
+        <h2 className="text-lg font-semibold text-zinc-900 mb-4 flex items-center gap-2">
+          <Upload className="w-5 h-5 text-zinc-400" /> 데이터 Import
         </h2>
-        <div className="glass rounded-xl p-6">
-          <div className="border-2 border-dashed border-white/10 rounded-xl p-8 text-center hover:border-brand-500/30 transition-colors cursor-pointer"
+        <div className="glass rounded-xl p-6 bg-white/80">
+          <div className="border-2 border-dashed border-zinc-200 rounded-xl p-8 text-center hover:border-brand-500/30 transition-colors cursor-pointer"
             onClick={() => document.getElementById("import-file")?.click()}>
-            <Upload className="w-8 h-8 text-slate-600 mx-auto mb-3" />
-            <p className="text-slate-400 text-sm">JSON 파일을 선택하거나 여기에 놓으세요</p>
-            <p className="text-slate-600 text-xs mt-1">import 전 Schema, ID 중복, Relation 참조를 검사합니다</p>
+            <Upload className="w-8 h-8 text-zinc-400 mx-auto mb-3" />
+            <p className="text-zinc-600 text-sm font-medium">JSON 파일을 선택하거나 여기에 놓으세요</p>
+            <p className="text-zinc-400 text-xs mt-1">import 전 Schema, ID 중복, Relation 참조를 검사합니다</p>
             <input type="file" id="import-file" accept=".json" className="hidden" />
           </div>
-          <div className="mt-4 flex items-start gap-2 text-xs text-amber-400/80">
+          <div className="mt-4 flex items-start gap-2 text-xs text-amber-700">
             <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
             <span>Import는 확인 전까지 DB에 반영되지 않습니다. 실패 시 전체 롤백됩니다.</span>
           </div>
@@ -111,13 +111,13 @@ export default function SettingsPage() {
 
       {/* Seed Restore */}
       <section>
-        <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-          <RefreshCw className="w-5 h-5 text-slate-400" /> 초기 데이터 복원
+        <h2 className="text-lg font-semibold text-zinc-900 mb-4 flex items-center gap-2">
+          <RefreshCw className="w-5 h-5 text-zinc-400" /> 초기 데이터 복원
         </h2>
-        <div className="glass rounded-xl p-5 flex items-center justify-between">
+        <div className="glass rounded-xl p-5 flex items-center justify-between bg-white/80">
           <div>
-            <p className="font-medium text-white">Seed 데이터 복원</p>
-            <p className="text-sm text-slate-500 mt-0.5">초기 Grammar 데이터를 다시 불러옵니다. 기존 데이터와 중복은 건너뜁니다.</p>
+            <p className="font-medium text-zinc-900">Seed 데이터 복원</p>
+            <p className="text-sm text-zinc-500 mt-0.5">초기 Grammar 데이터를 다시 불러옵니다. 기존 데이터와 중복은 건너뜁니다.</p>
           </div>
           <button className="btn-secondary text-sm">
             <RefreshCw className="w-4 h-4" /> 복원

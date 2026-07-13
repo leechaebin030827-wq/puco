@@ -76,8 +76,8 @@ export default function DataTable<T extends Record<string, unknown>>({
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">{title}</h1>
-          {description && <p className="text-slate-500 text-sm mt-1">{description}</p>}
+          <h1 className="text-2xl font-bold text-zinc-900">{title}</h1>
+          {description && <p className="text-zinc-500 text-sm mt-1">{description}</p>}
         </div>
         {newHref && (
           <Link href={newHref} className="btn-primary text-sm">
@@ -89,7 +89,7 @@ export default function DataTable<T extends Record<string, unknown>>({
       {/* Filters */}
       <div className="flex flex-wrap gap-3 mb-5">
         <div className="relative flex-1 min-w-48">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
           <input
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
@@ -102,8 +102,8 @@ export default function DataTable<T extends Record<string, unknown>>({
             <button key={s} onClick={() => { setStatusFilter(s); setPage(1); }}
               className={`text-xs px-3 py-2 rounded-lg border transition-all ${
                 statusFilter === s
-                  ? "bg-brand-600/20 border-brand-500/30 text-brand-300"
-                  : "border-white/10 text-slate-500 hover:text-white hover:border-white/20"
+                  ? "bg-brand-50 border-brand-200 text-brand-600 font-semibold"
+                  : "border-zinc-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50"
               }`}>
               {s === "all" ? "전체" : s === "draft" ? "초안" : s === "published" ? "발행됨" : "지원 종료"}
             </button>
@@ -112,14 +112,14 @@ export default function DataTable<T extends Record<string, unknown>>({
       </div>
 
       {/* Table */}
-      <div className="glass rounded-xl overflow-hidden">
+      <div className="glass rounded-xl overflow-hidden bg-white/80">
         <table className="w-full text-sm">
-          <thead className="border-b border-white/5">
+          <thead className="border-b border-zinc-200/60">
             <tr>
               {columns.map((col) => (
-                <th key={String(col.key)} className="text-left px-4 py-3 text-xs font-medium text-slate-500 uppercase tracking-wider">
+                <th key={String(col.key)} className="text-left px-4 py-3 text-xs font-medium text-zinc-400 uppercase tracking-wider">
                   {col.sortable !== false ? (
-                    <button onClick={() => toggleSort(String(col.key))} className="flex items-center gap-1 hover:text-white transition-colors">
+                    <button onClick={() => toggleSort(String(col.key))} className="flex items-center gap-1 hover:text-zinc-900 transition-colors">
                       {col.label}
                       {sortKey === String(col.key) ? (
                         sortDir === "asc" ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />
@@ -130,13 +130,13 @@ export default function DataTable<T extends Record<string, unknown>>({
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/3">
+          <tbody className="divide-y divide-zinc-100">
             {paginated.length === 0 ? (
-              <tr><td colSpan={columns.length} className="text-center py-12 text-slate-600">항목이 없습니다.</td></tr>
+              <tr><td colSpan={columns.length} className="text-center py-12 text-zinc-400">항목이 없습니다.</td></tr>
             ) : paginated.map((row, i) => (
               <tr key={i} className="data-row">
                 {columns.map((col) => (
-                  <td key={String(col.key)} className="px-4 py-3 text-slate-300">
+                  <td key={String(col.key)} className="px-4 py-3 text-zinc-700">
                     {col.render
                       ? col.render(row)
                       : col.key === "status"
@@ -153,16 +153,16 @@ export default function DataTable<T extends Record<string, unknown>>({
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between mt-4">
-          <p className="text-xs text-slate-600">{filtered.length}개 중 {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)}개 표시</p>
+          <p className="text-xs text-zinc-500">{filtered.length}개 중 {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)}개 표시</p>
           <div className="flex gap-2">
             <button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1} className="btn-ghost text-xs py-1.5 px-3 disabled:opacity-40">이전</button>
-            <span className="text-xs text-slate-500 py-1.5 px-2">{page} / {totalPages}</span>
+            <span className="text-xs text-zinc-400 py-1.5 px-2">{page} / {totalPages}</span>
             <button onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page === totalPages} className="btn-ghost text-xs py-1.5 px-3 disabled:opacity-40">다음</button>
           </div>
         </div>
       )}
 
-      <p className="text-xs text-slate-700 mt-4 flex items-center gap-1.5">
+      <p className="text-xs text-zinc-500 mt-4 flex items-center gap-1.5">
         <AlertTriangle className="w-3 h-3" />
         Supabase 연결 후 실시간 데이터가 표시됩니다. 현재는 로컬 엔진 기반입니다.
       </p>
