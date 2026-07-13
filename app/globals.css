@@ -2,6 +2,10 @@
 
 @import "tailwindcss";
 
+@source ".";
+@source "../components";
+@source "../lib";
+
 @theme {
   --color-brand-50: #f0f6ff;
   --color-brand-100: #e0edff;
